@@ -1,0 +1,27 @@
+// js/data.js
+
+const EMPRESA_NOME = "Zelar +";
+const EMPRESA_LOGO_FILENAME = "logoloja.jpeg"; // Certifique-se que está em images/
+const EMPRESA_MISSAO = "Promover uma melhoria na saúde, bem-estar e qualidade de vida por meio de alimentos saudáveis, acessíveis e com saborosos. Contribuindo para a formação de hábitos alimentares conscientes.";
+const EMPRESA_VISAO = "Ser reconhecida nacionalmente como referência em alimentação saudável, inovadora e acessível, transformando a maneira como as pessoas se alimentam e cuidam da sua saúde.";
+
+// Substitua pela sua chave PIX real ou um exemplo
+const CHAVE_PIX_EXEMPLO_COPIA_COLA = "00020126580014BR.GOV.BCB.PIX0136seuemailpix@example.com520400005303986540510.005802BR5913NOME COMPLETO6009SAO PAULO62070503***6304ABCD";
+const QR_CODE_PIX_PLACEHOLDER_IMG = "images/qr_code_pix_placeholder.png"; // Crie esta imagem
+
+const PRODUTOS = [
+    {"id": 1, "nome": "Marmita de suino (800g)", "preco": 37.94, "imagem": "imagem1.jpeg", "descricao": "Refeição prática, leve e saborosa. Lombo suíno assado, vagem cozida e purê de batata inglesa, em uma combinação sem glúten e sem lactose. Ideal para o dia a dia, com ingredientes selecionados e sabor caseiro."},
+    {"id": 2, "nome": "Marmita de frango (800g)", "preco": 28.56, "imagem": "imagem2.jpeg", "descricao": "Uma refeição saudável, saborosa e prática para qualquer momento. Cubos de frango assado, acompanhados de arroz temperado e brócolis cozido no vapor. Sem glúten e sem lactose, é ideal para quem busca uma alimentação equilibrada no dia a dia."},
+    {"id": 3, "nome": "Bebida Gaseificada (250ml)", "preco": 4.49, "imagem": "imagem3.jpeg", "descricao": "Refrescante e leve, essa bebida gaseificada com um toque natural de limão é perfeita para qualquer momento do dia. Sem glúten e sem lactose, ideal para acompanhar suas refeições ou refrescar-se a qualquer hora."},
+    {"id": 4, "nome": "Achocolatado (450ml)", "preco": 8.97, "imagem": "imagem4.jpeg", "descricao": "Delicie-se com o sabor do chocolate em uma bebida leve e cremosa, perfeita para qualquer hora do dia. Sem glúten e sem lactose, é ideal para quem busca sabor e cuidado com a alimentação."},
+    {"id": 5, "nome": "Alcaçuz (150ml)", "preco": 12.39, "imagem": "imagem5.jpeg", "descricao": "Desfrute do autêntico sabor do alcaçuz com nossos Doces de Alcaçuz. Totalmente sem glúten e sem lactose, são perfeitos para quem busca um mimo delicioso que se encaixa em qualquer dieta."},
+    {"id": 6, "nome": "Chocolate (150g)", "preco": 7.61, "imagem": "imagem7.jpeg", "descricao": "Experimente a indulgência da nossa Barrinha de Chocolate. Deliciosamente rica e feita para todos, é sem glúten e sem lactose. O mimo perfeito para qualquer hora!"},
+    {"id": 7, "nome": "Shake Pronto (350ml) sabor chocolate", "preco": 10.84, "imagem": "imagem9.jpeg", "descricao": "Uma refeição completa, prática e saborosa em embalagem pronta para beber. Esse shake nutritivo sabor chocolate é ideal para quem busca energia, saciedade e equilíbrio alimentar no dia a dia. Sem glúten e sem lactose, perfeito para dietas restritivas ou para quem deseja uma opção leve e funcional."},
+    {"id": 8, "nome": "Shake em pó (350ml) sabor baunilha", "preco": 7.61, "imagem": "imagem8.jpeg", "descricao": "Substitua uma refeição completa de forma prática e saborosa. Este shake em pó sabor baunilha é ideal para quem busca nutrição equilibrada com facilidade. Basta diluir em água e consumir onde e quando quiser."},
+    {"id": 9, "nome": "Salgadinho de Milho (400g)", "preco": 8.87, "imagem": "imagem6.jpeg", "descricao": "Delicioso, leve e crocante! Esse salgadinho de milho com cenoura é perfeito para o seu lanche do dia a dia, trazendo sabor e praticidade sem abrir mão do cuidado com a alimentação."},
+    {"id": 10, "nome": "Salgadinho de Milho com Cenoura (400g)", "preco": 9.24, "imagem": "imagem12.jpeg", "descricao": "Delicioso, leve e crocante! Esse salgadinho de milho com cenoura é perfeito para o seu lanche do dia a dia, trazendo sabor e praticidade sem abrir mão do cuidado com a alimentação."},
+    {"id": 11, "nome": "Barrinha de Castanha (60g)", "preco": 4.87, "imagem": "imagem11.jpeg", "descricao": "Uma opção prática, saudável e cheia de energia para o seu dia! Nossa barrinha de castanhas combina crocância e sabor natural, perfeita para levar na bolsa, no trabalho ou no treino."},
+    {"id": 12, "nome": "Barrinha de Flocos de Arroz com Aveia (60g)", "preco": 3.63, "imagem": "imagem10.jpeg", "descricao": "Nossa Barrinha de Flocos de Arroz com Aveia é o snack perfeito para quem busca bem-estar. Sem glúten e sem lactose, combina a leveza dos flocos de arroz com a energia da aveia. Crocante e deliciosa, é ideal para qualquer hora do dia."},
+    {"id": 13, "nome": "Biscoito de Arroz (12g)", "preco": 5.30, "imagem": "imagem13.jpeg", "descricao": "Descubra nosso Biscoito de Arroz, a opção perfeita para um snack leve e crocante. Naturalmente sem glúten e sem lactose, ele é ideal para todos os momentos."},
+    {"id": 14, "nome": "Cookie (80g)", "preco": 11.40, "imagem": "imagem14.jpeg", "descricao": "Experimente o sabor irresistível do nosso Cookie. Crocante por fora e macio por dentro, ele é feito para todos, pois é sem glúten e sem lactose. O mimo perfeito para qualquer hora do dia!"}
+];
