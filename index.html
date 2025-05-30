@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Zelar + - Início</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="" alt="Logo" class="logo empresa-logo-placeholder" id="navbar-logo-img">
+                <span class="empresa-nome-global">Zelar +</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="meus_pedidos.html"><i class="fas fa-receipt"></i> Meus Pedidos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="carrinho.html"><i class="fas fa-shopping-cart"></i> Carrinho <span class="badge bg-success rounded-pill" id="cart-count">0</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modals (serão usados por todas as páginas, por isso estão aqui) -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div id="feedbackToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000">
+        <div class="toast-header" id="toastHeader"><strong class="me-auto" id="toastTitle"></strong><button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button></div>
+        <div class="toast-body" id="toastMessage"></div>
+      </div>
+    </div>
+    <div class="modal fade" id="imageModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body text-center"><img src="" id="modalImageSrc" alt="Imagem Ampliada"></div></div></div></div>
+    <div class="modal fade" id="pixModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Pagamento via PIX</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body modal-pix-body text-center"><p>Escaneie o QR Code ou copie o código PIX.</p><img id="pixQrCodeImg" src="" alt="QR Code PIX"><p class="mt-2"><strong>Valor: R$ <span id="pixValor"></span></strong></p><div class="input-group my-3"><input type="text" id="pixCopiaECola" class="form-control" readonly><button class="btn btn-outline-secondary" type="button" id="btnCopiarPix"><i class="fas fa-copy"></i> Copiar</button></div><small class="text-muted">Simulação: Após "pagar", clique em "Já Paguei".</small></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button><button type="button" class="btn btn-success" id="btnConfirmarPixManual">Já Paguei (Simulado)</button></div></div></div></div>
+    <div class="modal fade" id="confirmacaoPagamentoModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header bg-success text-white"><h5 class="modal-title"><i class="fas fa-check-circle"></i> Pagamento Confirmado!</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div class="modal-body text-center"><i class="fas fa-gift fa-3x text-success my-3"></i><p class="lead-message" id="confirmacaoValorCompra"></p><p id="confirmacaoMensagemPrincipal"></p><p><strong>Muito obrigado pela confiança!</strong></p><small class="text-muted mt-2 d-block" id="confirmacaoMensagemAdicional"></small></div><div class="modal-footer"><a href="index.html" class="btn btn-primary">Voltar para Início</a></div></div></div></div>
+    <div class="modal fade" id="boletoModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Gerar Boleto (Simulado)</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><p>Informe nome e e-mail para "gerar" o boleto.</p><div class="mb-3"><label for="boletoNomeCliente" class="form-label">Nome <span class="text-danger">*</span></label><input type="text" class="form-control" id="boletoNomeCliente" required></div><div class="mb-3"><label for="boletoEmailCliente" class="form-label">E-mail <span class="text-danger">*</span></label><input type="email" class="form-control" id="boletoEmailCliente" required></div><p><strong>Valor: R$ <span id="boletoValor"></span></strong></p><small class="text-muted">Simulação: Boleto não será enviado.</small></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button><button type="button" class="btn btn-success" id="btnGerarEnviarBoleto">"Gerar Boleto"</button></div></div></div></div>
+    <div class="modal fade" id="cartaoModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="cartaoModalLabel">Pagamento Cartão (Simulado)</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><p>Simulação. Nenhum dado real processado.</p><div class="mb-3"><label for="cartaoNumero" class="form-label">Núm. Cartão</label><input type="text" class="form-control" id="cartaoNumero" placeholder="0000 0000 0000 0000"></div><div class="row"><div class="col-md-7 mb-3"><label for="cartaoValidade" class="form-label">Validade</label><input type="text" class="form-control" id="cartaoValidade" placeholder="MM/AA"></div><div class="col-md-5 mb-3"><label for="cartaoCVV" class="form-label">CVV</label><input type="text" class="form-control" id="cartaoCVV" placeholder="000"></div></div><p><strong>Valor: R$ <span id="cartaoValor"></span></strong></p></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button><button type="button" class="btn btn-success" id="btnConfirmarCartaoSimulado">Pagar (Simulado)</button></div></div></div></div>
+    <!-- Fim Modals -->
+
+    <main class="container mt-4 mb-5 flex-grow-1">
+        <div class="hero-section mb-5">
+            <div class="container">
+                <h1>Bem-vindo à <span class="empresa-nome-placeholder">Zelar +</span>!</h1>
+                <p class="lead">Sua jornada para uma vida mais saudável começa aqui.</p>
+                <a href="produtos.html" class="btn btn-success btn-lg mt-3">Conheça Nossos Produtos</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <section id="missao" class="my-5 text-center">
+                <h2 class="section-title"><i class="fas fa-bullseye"></i> Nossa Missão</h2>
+                <p class="lead" id="missao-empresa"></p>
+            </section>
+            <hr class="my-5">
+            <section id="visao" class="my-5 text-center">
+                <h2 class="section-title"><i class="fas fa-eye"></i> Nossa Visão</h2>
+                <p class="lead" id="visao-empresa"></p>
+            </section>
+            <hr class="my-5">
+            <section id="destaques" class="my-5">
+                <h2 class="section-title text-center"><i class="fas fa-star"></i> Produtos em Destaque</h2>
+                <div class="row" id="produtos-destaque-container">
+                    <!-- Produtos em destaque serão inseridos aqui pelo JS -->
+                </div>
+                <div class="text-center mt-4">
+                    <a href="produtos.html" class="btn btn-outline-primary btn-lg">Ver Todos os Produtos</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <p>© <span id="current-year"></span> <span class="empresa-nome-global">Zelar +</span>. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/data.js"></script> <!-- Carrega dados primeiro -->
+    <script src="js/script.js"></script>
+</body>
+</html>
